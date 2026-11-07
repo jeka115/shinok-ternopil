@@ -1,6 +1,3 @@
-/* ==========================================
-   ЗАГАЛЬНІ СТИЛІ
-   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,12 +7,12 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #121212;
-    color: #ff3333; /* Яскравий червоний акцент */
+    color: #ff3333;
     overflow-x: hidden;
 }
 
 .screen {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     min-height: 700px;
     display: flex;
@@ -24,9 +21,6 @@ body {
     border-bottom: 2px solid #333;
 }
 
-/* ==========================================
-   ЕКРАН 1 (Flexbox + CSS3 Анімація 1)
-   ========================================== */
 .screen-1 {
     background-color: #1a1a1a;
 }
@@ -37,7 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    animation: fadeInLeft 1.2s ease-out forwards; /* Вимога А (Анімація 1) */
+    animation: fadeInLeft 1.2s ease-out forwards;
 }
 
 .top-nav .brand-name {
@@ -93,7 +87,6 @@ body {
     object-fit: cover;
 }
 
-/* Анімація 1: Зсув зліва */
 @keyframes fadeInLeft {
     from {
         opacity: 0;
@@ -105,9 +98,6 @@ body {
     }
 }
 
-/* ==========================================
-   ЕКРАН 2 (Flexbox + CSS3 Анімація 2)
-   ========================================== */
 .screen-2 {
     background-color: #141414;
     align-items: center;
@@ -124,6 +114,7 @@ body {
 .select-works-tag {
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
+    font-weight: 400;
     margin-bottom: 30px;
     color: #ffffff;
     text-transform: uppercase;
@@ -135,6 +126,7 @@ body {
     font-weight: 700;
     line-height: 1.05;
     color: #ff3333;
+    list-style: none;
 }
 
 .screen-2-right {
@@ -146,7 +138,7 @@ body {
 .gallery {
     display: flex;
     gap: 15px;
-    animation: zoomIn 1.4s ease-in-out forwards; /* Вимога А (Анімація 2) */
+    animation: zoomIn 1.4s ease-in-out forwards;
 }
 
 .gallery-item {
@@ -168,7 +160,6 @@ body {
     transform: scale(1.15);
 }
 
-/* Анімація 2: Плавне збільшення */
 @keyframes zoomIn {
     from {
         opacity: 0;
@@ -180,9 +171,6 @@ body {
     }
 }
 
-/* ==========================================
-   ЕКРАН 3 (Flexbox + CSS3 Анімація 3)
-   ========================================== */
 .screen-3 {
     background-color: #1a1a1a;
 }
@@ -220,7 +208,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    animation: slideUp 1.2s ease-out forwards; /* Вимога А (Анімація 3) */
+    animation: slideUp 1.2s ease-out forwards;
 }
 
 .description-bold {
@@ -255,9 +243,18 @@ body {
     font-weight: 500;
     color: #cccccc;
     line-height: 1.4;
+    font-style: normal;
 }
 
-/* Анімація 3: Зсув знизу вгору */
+.project-details a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-details a:hover {
+    color: #ff3333;
+}
+
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -269,9 +266,14 @@ body {
     }
 }
 
-/* ==========================================
-   ВИМОГА С: МЕДІА-ЗАПИТ ДЛЯ МОБІЛЬНОГО
-   ========================================== */
+.js .reveal {
+    animation-play-state: paused;
+}
+
+.js .reveal.is-visible {
+    animation-play-state: running;
+}
+
 @media (max-width: 768px) {
     .screen {
         height: auto;
@@ -280,14 +282,10 @@ body {
         padding: 20px;
     }
 
-    /* Приховуємо всі зображення на смартфоні */
     .screen-1-right,
     .screen-2-right,
-    .portrait-wrapper,
-    .main-photo,
-    .gallery,
-    .portrait-photo {
-        display: none !important;
+    .portrait-wrapper {
+        display: none;
     }
 
     .screen-1-left,
